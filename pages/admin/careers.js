@@ -7,7 +7,7 @@ import {
     XCircle, AlertTriangle, X, Loader2, Briefcase, MapPin, Clock
 } from 'lucide-react';
 
-const API_BASE = 'https://u177524058.pink-echidna-330123.hostingersite.com/api';
+const API_BASE = 'https://pink-echidna-330123.hostingersite.com/api';
 
 const EMPTY_JOB = {
     title: '', department: '', location: 'Remote', type: 'Full-Time',

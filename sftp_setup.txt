@@ -1,0 +1,3 @@
+mkdir public_html/api
+put "vikrin-php-backend/api/setup.php" public_html/api/setup.php
+bye

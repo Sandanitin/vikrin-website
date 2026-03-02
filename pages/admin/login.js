@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, LogIn } from 'lucide-react';
 
-const API_BASE = 'https://u177524058.pink-echidna-330123.hostingersite.com/api';
+const API_BASE = 'https://pink-echidna-330123.hostingersite.com/api';
 
 export default function AdminLogin() {
     const router = useRouter();

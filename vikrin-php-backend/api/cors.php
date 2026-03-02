@@ -5,6 +5,7 @@ $allowed_origins = [
     'https://www.vikrin.com',
     'http://localhost:3000',
     'https://vikrin-website.vercel.app',
+    'https://pink-echidna-330123.hostingersite.com',
 ];
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';

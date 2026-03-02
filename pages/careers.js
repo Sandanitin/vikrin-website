@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Clock, Briefcase, ChevronDown, ChevronUp, Send, X, CheckCircle } from 'lucide-react';
 
-const API_BASE = 'https://u177524058.pink-echidna-330123.hostingersite.com/api';
+const API_BASE = 'https://pink-echidna-330123.hostingersite.com/api';
 
 export default function Careers() {
     const [jobs, setJobs] = useState([]);

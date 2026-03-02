@@ -1,0 +1,8 @@
+﻿mkdir public_html/api
+put "vikrin-php-backend/api/db.php" public_html/api/db.php
+put "vikrin-php-backend/api/cors.php" public_html/api/cors.php
+put "vikrin-php-backend/api/careers-get.php" public_html/api/careers-get.php
+put "vikrin-php-backend/api/careers-apply.php" public_html/api/careers-apply.php
+put "vikrin-php-backend/api/careers-admin.php" public_html/api/careers-admin.php
+put "vikrin-php-backend/api/admin-login.php" public_html/api/admin-login.php
+bye
