@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#1F3CAB] text-white py-12 px-4 sm:px-6 mt-20">
       <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-3">
-        
+
         {/* Branding */}
         <div>
           <h3 className="text-xl font-bold mb-3">Vikrin</h3>
@@ -31,6 +31,7 @@ export default function Footer() {
             {[
               { label: "About", href: "/about", isAnchor: false },
               { label: "Services", href: "#services", isAnchor: true },
+              { label: "Careers", href: "/careers", isAnchor: false },
               { label: "Contact", href: "#contact", isAnchor: true },
               { label: "Privacy Policy", href: "/privacy-policy", isAnchor: false },
               { label: "Terms & Conditions", href: "/terms", isAnchor: false },
