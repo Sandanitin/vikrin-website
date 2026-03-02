@@ -1,0 +1,43 @@
+name: Deploy to Hostinger (PHP Backend)
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'vikrin-php-backend/**'
+  workflow_dispatch:
+
+jobs:
+  deploy-php-backend:
+    name: Deploy PHP Backend to Hostinger
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy PHP API to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          local-dir: ./vikrin-php-backend/api/
+          server-dir: /public_html/api/
+          protocol: ftp
+          port: 21
+          timeout: 300000
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            setup.php
+
+      - name: Notify on success
+        if: success()
+        run: echo "✅ PHP backend deployed successfully to pink-echidna-330123.hostingersite.com/api/"
+
+      - name: Notify on failure
+        if: failure()
+        run: echo "❌ PHP backend deployment failed. Check FTP credentials in repository secrets."
