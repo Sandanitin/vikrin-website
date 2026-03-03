@@ -1,3 +1,4 @@
+// Footer component
 import Link from "next/link";
 import { FaLinkedin, FaInstagram, FaArrowUp } from "react-icons/fa";
 
