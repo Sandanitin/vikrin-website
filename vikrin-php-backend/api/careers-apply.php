@@ -32,6 +32,15 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// 1. Save application to database securely
+try {
+    $stmt = $pdo->prepare("INSERT INTO `job_applications` (job_title, name, email, phone, resume_link, cover_letter) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$job_title, $name, $email, $phone, $resume, $cover]);
+} catch (Exception $e) {
+    // Log the error but continue to send email so application isn't completely lost
+    error_log("Failed to save application to DB: " . $e->getMessage());
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;

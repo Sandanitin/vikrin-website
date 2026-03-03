@@ -2,9 +2,10 @@ import Head from 'next/head';
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import {
     Plus, Pencil, Trash2, LogOut, Eye, EyeOff, CheckCircle,
-    XCircle, AlertTriangle, X, Loader2, Briefcase, MapPin, Clock
+    XCircle, AlertTriangle, X, Loader2, Briefcase, MapPin, Clock, Users
 } from 'lucide-react';
 
 const API_BASE = 'https://pink-echidna-330123.hostingersite.com/api';
@@ -188,6 +189,9 @@ export default function AdminCareers() {
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
+                        <Link href="/admin/applications" className="hidden sm:flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
+                            <Users className="w-4 h-4" /> View Applicants
+                        </Link>
                         <a href="/careers" target="_blank" rel="noopener noreferrer"
                             className="hidden sm:flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
                             <Eye className="w-4 h-4" /> View Page
