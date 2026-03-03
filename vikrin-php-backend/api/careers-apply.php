@@ -32,13 +32,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 // Send email notification via Gmail SMTP using PHPMailer
 $autoload = __DIR__ . '/vendor/autoload.php';
 if (file_exists($autoload)) {
     require $autoload;
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
 
     $mail = new PHPMailer(true);
     try {
