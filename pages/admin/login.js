@@ -86,12 +86,15 @@ export default function AdminLogin() {
                                     placeholder="••••••••"
                                     value={form.password}
                                     onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-                                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1F3CAB] transition pr-12"
+                                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1F3CAB] transition pr-12 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden [&::-webkit-credentials-auto-fill-button]:hidden"
                                 />
                                 <button
                                     type="button"
-                                    onClick={() => setShowPwd(v => !v)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                    onPointerDown={(e) => {
+                                        e.preventDefault(); // Prevents input from losing focus
+                                        setShowPwd(v => !v);
+                                    }}
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-10 p-1"
                                 >
                                     {showPwd ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                                 </button>
