@@ -124,7 +124,7 @@ export default function AdminApplications() {
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
-                        <Link href="/admin/careers" className="hidden sm:flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
+                        <Link href="/admin/careers" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
                             <LayoutDashboard className="w-4 h-4" /> Manage Jobs
                         </Link>
                         <button onClick={logout} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
