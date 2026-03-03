@@ -68,7 +68,7 @@ export default function AdminLogin() {
                                 type="text"
                                 required
                                 autoComplete="username"
-                                placeholder="admin"
+                                placeholder="sainithin95054@gmail.com"
                                 value={form.username}
                                 onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
                                 className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1F3CAB] transition"
