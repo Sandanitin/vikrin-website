@@ -1,5 +1,6 @@
 <?php
 // One-time setup script — run once then delete for security
+// Trigger FTP deploy
 require_once __DIR__ . '/db.php';
 
 $sql = "CREATE TABLE IF NOT EXISTS `careers` (

@@ -35,6 +35,7 @@ export default function Footer() {
               { label: "Contact", href: "#contact", isAnchor: true },
               { label: "Privacy Policy", href: "/privacy-policy", isAnchor: false },
               { label: "Terms & Conditions", href: "/terms", isAnchor: false },
+              { label: "Admin Login", href: "/admin/login", isAnchor: false },
             ].map((link, idx) => (
               <li key={idx} className="flex items-center gap-2">
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
