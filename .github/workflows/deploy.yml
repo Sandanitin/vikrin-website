@@ -32,7 +32,6 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            api/setup.php
             sftp-upload.bat
 
       - name: Notify on success
