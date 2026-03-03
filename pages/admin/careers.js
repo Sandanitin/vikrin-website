@@ -228,7 +228,7 @@ export default function AdminCareers() {
                         <div className="text-center py-20 bg-white rounded-2xl shadow-sm border">
                             <div className="text-5xl mb-4">📋</div>
                             <h3 className="text-xl font-semibold text-gray-700 mb-2">No Jobs Yet</h3>
-                            <p className="text-gray-500 mb-6">Click "Add New Job" to post your first opening.</p>
+                            <p className="text-gray-500 mb-6">Click &quot;Add New Job&quot; to post your first opening.</p>
                         </div>
                     )}
 
