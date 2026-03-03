@@ -28,7 +28,9 @@ jobs:
         run: npm run build
 
       - name: Combine PHP Backend
-        run: cp -R vikrin-php-backend out/api
+        run: |
+          mkdir -p out/api
+          cp -R vikrin-php-backend/api/* out/api/
 
       - name: Deploy to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
