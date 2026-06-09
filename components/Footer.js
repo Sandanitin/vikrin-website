@@ -76,7 +76,7 @@ export default function Footer() {
 
       {/* Bottom note */}
       <div className="text-center mt-12 text-xs sm:text-sm text-gray-300 border-t border-white/10 pt-6 font-medium">
-        &copy; {new Date().getFullYear()} Vikrin Private Limited. All Rights Reserved.
+        &copy; {new Date().getFullYear()} Vikrin Pvt Ltd. All Rights Reserved.
       </div>
 
       {/* Back to top */}
