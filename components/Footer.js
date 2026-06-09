@@ -31,9 +31,9 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             {[
               { label: "About", href: "/about", isAnchor: false },
-              { label: "Services", href: "#services", isAnchor: true },
+              { label: "Services", href: "/#services", isAnchor: true },
               { label: "Careers", href: "/careers", isAnchor: false },
-              { label: "Contact", href: "#contact", isAnchor: true },
+              { label: "Contact", href: "/#contact", isAnchor: true },
               { label: "Privacy Policy", href: "/privacy-policy", isAnchor: false },
               { label: "Terms & Conditions", href: "/terms", isAnchor: false },
               { label: "Admin Login", href: "/admin/login", isAnchor: false },
@@ -62,7 +62,7 @@ export default function Footer() {
 
       {/* Bottom note */}
       <div className="text-center mt-10 text-xs sm:text-sm text-gray-300 border-t border-gray-400 pt-6">
-        &copy; {new Date().getFullYear()} Vikrin.com. All rights reserved.
+        &copy; {new Date().getFullYear()} Vikrin Private Limited. All Rights Reserved.
       </div>
 
       {/* Back to top */}

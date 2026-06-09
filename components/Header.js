@@ -44,11 +44,11 @@ export default function Header() {
       </div>
 
       <nav className={`${navOpen ? "flex" : "hidden"} flex-col absolute top-20 right-8 bg-white p-4 rounded-lg shadow-md space-y-4 md:flex md:flex-row md:static md:bg-transparent md:space-y-0 md:space-x-6 text-gray-700 font-medium`}>
-        <Link href="#services" className="hover:text-blue-600">Services</Link>
-        <Link href="#portfolio" className="hover:text-blue-600">Portfolio</Link>
-        <Link href="#why-us" className="hover:text-blue-600">Why Us</Link>
-        <Link href="#testimonials" className="hover:text-blue-600">Testimonials</Link>
-        <Link href="#contact" className="hover:text-blue-600">Contact</Link>
+        <Link href="/#services" className="hover:text-blue-600">Services</Link>
+        <Link href="/#portfolio" className="hover:text-blue-600">Portfolio</Link>
+        <Link href="/#why-us" className="hover:text-blue-600">Why Us</Link>
+        <Link href="/#testimonials" className="hover:text-blue-600">Testimonials</Link>
+        <Link href="/#contact" className="hover:text-blue-600">Contact</Link>
         <Link href="/careers" className="hover:text-blue-600 font-semibold text-[#1F3CAB]">Careers</Link>
       </nav>
     </header>
