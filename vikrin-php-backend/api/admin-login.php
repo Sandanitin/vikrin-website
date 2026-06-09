@@ -7,9 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Admin credentials (change password as needed)
-define('ADMIN_USERNAME', 'sainithin95054@gmail.com');
-define('ADMIN_PASSWORD', '123456789');
+define('ADMIN_USERNAME', 'vikrin@gmil.com');
+define('ADMIN_PASSWORD', 'vikrin@gmil.com1');
 define('SECRET_KEY', 'VikrinAdminSecret2024!');
 
 $input = json_decode(file_get_contents('php://input'), true) ?? [];

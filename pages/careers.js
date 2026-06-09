@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useState, useEffect } from 'react';
@@ -74,41 +75,117 @@ export default function Careers() {
 
             <Header />
 
-            <main className="bg-[#e5e5e5] min-h-screen">
+            <main className="bg-[#f8fafc] min-h-screen">
                 {/* Hero */}
-                <section className="py-20 px-6 bg-[#042927] text-white text-center">
-                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                        <p className="text-green-400 font-semibold tracking-widest uppercase text-sm mb-3">We&apos;re Hiring</p>
-                        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                            Build the Future<br className="hidden md:block" /> with Vikrin
-                        </h1>
-                        <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto">
-                            Join a team that creates world-class websites and marketing campaigns. Remote-friendly, growth-focused.
-                        </p>
-                    </motion.div>
+                <section className="relative py-24 px-6 md:px-12 bg-[#042927] text-white overflow-hidden">
+                    <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
+                    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+                        <motion.div 
+                            initial={{ opacity: 0, x: -50 }} 
+                            animate={{ opacity: 1, x: 0 }} 
+                            transition={{ duration: 0.6 }}
+                            className="space-y-6 text-left"
+                        >
+                            <span className="inline-block bg-green-500/10 text-green-400 font-semibold tracking-widest uppercase text-xs px-3 py-1.5 rounded-full border border-green-500/20">
+                                🚀 We&apos;re Hiring
+                            </span>
+                            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                                Build the Future <br />
+                                <span className="bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">with Vikrin</span>
+                            </h1>
+                            <p className="text-white/80 text-lg md:text-xl leading-relaxed">
+                                Join a high-performance team that crafts world-class websites and drives growth with cutting-edge digital marketing. Remote-friendly, innovation-led, and growth-focused.
+                            </p>
+                            <div className="pt-2">
+                                <a 
+                                    href="#open-positions" 
+                                    className="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-3.5 rounded-xl font-bold transition transform hover:scale-105 shadow-lg shadow-green-500/20"
+                                >
+                                    View Open Positions
+                                </a>
+                            </div>
+                        </motion.div>
+
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }} 
+                            animate={{ opacity: 1, scale: 1 }} 
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="flex justify-center"
+                        >
+                            <div className="relative w-full h-[320px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+                                <Image
+                                    src="/careers_hero.png"
+                                    alt="Vikrin Team Collaboration"
+                                    fill
+                                    priority
+                                    className="object-cover transform group-hover:scale-105 transition duration-500"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#042927]/60 via-transparent to-transparent pointer-events-none" />
+                            </div>
+                        </motion.div>
+                    </div>
                 </section>
 
                 {/* Why Work With Us */}
-                <section className="py-16 px-6 max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center text-[#1F3CAB] mb-10">Why Join Vikrin?</h2>
-                    <div className="grid md:grid-cols-3 gap-6">
+                <section className="pt-20 pb-10 px-6 max-w-6xl mx-auto">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-[#1F3CAB] tracking-tight mb-4">
+                            Why Join Vikrin?
+                        </h2>
+                        <p className="text-gray-600 text-lg">
+                            We believe in fostering an environment where talented professionals can perform at their best and continuously grow.
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8">
                         {[
-                            { icon: '🚀', title: 'Fast Growth', desc: 'Accelerate your career with real ownership and impact.' },
-                            { icon: '🌍', title: 'Remote-First', desc: 'Work from anywhere. Flexible schedules, async culture.' },
-                            { icon: '💡', title: 'Learn & Grow', desc: 'Mentorship, training and exposure to top-tier clients.' },
-                        ].map(({ icon, title, desc }) => (
-                            <div key={title} className="bg-white rounded-2xl p-6 shadow-md text-center hover:shadow-lg transition">
-                                <div className="text-4xl mb-3">{icon}</div>
-                                <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
-                                <p className="text-gray-500 text-sm">{desc}</p>
-                            </div>
+                            { src: '/careers_fast_growth.png', title: 'Fast Growth', desc: 'Accelerate your career with real ownership, autonomy, and impact on global client projects.' },
+                            { src: '/careers_remote_first.png', title: 'Remote-First', desc: 'Work from anywhere in the world. We embrace flexible schedules and an asynchronous, document-first culture.' },
+                            { src: '/careers_learn_grow.png', title: 'Learn & Grow', desc: 'Access continuous mentorship, skills training, and exposure to cutting-edge web & marketing tech.' },
+                        ].map(({ src, title, desc }, index) => (
+                            <motion.div 
+                                key={title} 
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.15 }}
+                                className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between"
+                            >
+                                <div>
+                                    <div className="relative w-16 h-16 rounded-2xl overflow-hidden mb-6 border border-gray-100 shadow-sm">
+                                        <Image
+                                            src={src}
+                                            alt={title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+                                    <p className="text-gray-600 leading-relaxed text-sm">{desc}</p>
+                                </div>
+                            </motion.div>
                         ))}
                     </div>
                 </section>
 
                 {/* Job Listings */}
-                <section className="py-12 px-6 max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-[#1F3CAB] mb-8">Open Positions</h2>
+                <section id="open-positions" className="pt-0 pb-16 px-6 max-w-6xl mx-auto scroll-mt-24">
+                    <div className="border-t border-gray-200/80 pt-10 mb-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div className="space-y-4 max-w-xl">
+                            <span className="text-blue-600 font-bold tracking-wider uppercase text-xs block">Join Our Mission</span>
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Open Positions</h2>
+                            <p className="text-gray-600 text-base leading-relaxed">
+                                Discover career opportunities. If you don&apos;t see a perfect match, feel free to send us your resume anyway!
+                            </p>
+                        </div>
+                        <div className="relative w-40 h-40 md:w-48 md:h-48 shrink-0 rounded-3xl overflow-hidden border border-gray-100 shadow-sm bg-white">
+                            <Image
+                                src="/careers_hiring_illustration.png"
+                                alt="We are hiring illustration"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    </div>
 
                     {loading && (
                         <div className="text-center py-20">
@@ -128,32 +205,41 @@ export default function Careers() {
                         </motion.div>
                     )}
 
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         {jobs.map((job, i) => (
                             <motion.div
                                 key={job.id}
                                 initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.07 }}
-                                className="bg-white rounded-2xl shadow-md overflow-hidden"
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: i * 0.05 }}
+                                className="bg-white rounded-3xl border border-gray-200/60 shadow-sm hover:shadow-md transition duration-200 overflow-hidden"
                             >
                                 <button
                                     onClick={() => setExpandedId(expandedId === job.id ? null : job.id)}
-                                    className="w-full text-left p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+                                    className="w-full text-left p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 focus:outline-none hover:bg-gray-50/50 transition duration-150 group"
                                 >
-                                    <div>
-                                        <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
-                                        <div className="flex flex-wrap gap-3 mt-2 text-sm text-gray-500">
+                                    <div className="space-y-2">
+                                        <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition">{job.title}</h3>
+                                        <div className="flex flex-wrap gap-2.5 mt-2.5 text-xs font-semibold">
                                             {job.department && (
-                                                <span className="flex items-center gap-1"><Briefcase className="w-4 h-4" /> {job.department}</span>
+                                                <span className="flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 rounded-full">
+                                                    <Briefcase className="w-3.5 h-3.5" /> {job.department}
+                                                </span>
                                             )}
-                                            <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> {job.location}</span>
-                                            <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {job.type}</span>
+                                            <span className="flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full">
+                                                <MapPin className="w-3.5 h-3.5" /> {job.location}
+                                            </span>
+                                            <span className="flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 rounded-full">
+                                                <Clock className="w-3.5 h-3.5" /> {job.type}
+                                            </span>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-3 shrink-0">
-                                        <span className="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Hiring</span>
-                                        {expandedId === job.id ? <ChevronUp className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
+                                    <div className="flex items-center gap-4 shrink-0 self-start sm:self-auto">
+                                        <span className="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Hiring</span>
+                                        <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 group-hover:text-[#1F3CAB] group-hover:bg-blue-50/50 transition">
+                                            {expandedId === job.id ? <ChevronUp className="w-5 h-5 text-[#1F3CAB]" /> : <ChevronDown className="w-5 h-5" />}
+                                        </div>
                                     </div>
                                 </button>
 
@@ -166,23 +252,31 @@ export default function Careers() {
                                             transition={{ duration: 0.3 }}
                                             className="overflow-hidden"
                                         >
-                                            <div className="px-6 pb-6 border-t border-gray-100 pt-4 space-y-4">
-                                                <div>
-                                                    <h4 className="font-semibold text-gray-800 mb-1">About This Role</h4>
-                                                    <p className="text-gray-600 whitespace-pre-line text-sm leading-relaxed">{job.description}</p>
-                                                </div>
-                                                {job.requirements && (
-                                                    <div>
-                                                        <h4 className="font-semibold text-gray-800 mb-1">Requirements</h4>
-                                                        <p className="text-gray-600 whitespace-pre-line text-sm leading-relaxed">{job.requirements}</p>
+                                            <div className="px-6 pb-8 sm:px-8 border-t border-gray-100 pt-6 space-y-6 bg-gray-50/20">
+                                                <div className="grid md:grid-cols-3 gap-6">
+                                                    <div className="md:col-span-2 space-y-4">
+                                                        <div>
+                                                            <h4 className="font-bold text-gray-800 text-base mb-2">About This Role</h4>
+                                                            <p className="text-gray-600 whitespace-pre-line text-sm leading-relaxed">{job.description}</p>
+                                                        </div>
+                                                        {job.requirements && (
+                                                            <div>
+                                                                <h4 className="font-bold text-gray-800 text-base mb-2">Requirements</h4>
+                                                                <p className="text-gray-600 whitespace-pre-line text-sm leading-relaxed">{job.requirements}</p>
+                                                            </div>
+                                                        )}
                                                     </div>
-                                                )}
-                                                <button
-                                                    onClick={() => openApply(job)}
-                                                    className="mt-2 inline-flex items-center gap-2 bg-[#1F3CAB] hover:bg-[#162d8a] text-white px-6 py-3 rounded-xl font-semibold transition hover:scale-105"
-                                                >
-                                                    <Send className="w-4 h-4" /> Apply Now
-                                                </button>
+                                                    <div className="bg-white p-6 rounded-2xl border border-gray-200/50 shadow-sm flex flex-col justify-center h-fit space-y-4">
+                                                        <h5 className="font-bold text-gray-900 text-sm">Ready to apply?</h5>
+                                                        <p className="text-gray-500 text-xs leading-relaxed">Submit your details and we will review your application within 3 business days.</p>
+                                                        <button
+                                                            onClick={() => openApply(job)}
+                                                            className="w-full inline-flex items-center justify-center gap-2 bg-[#1F3CAB] hover:bg-[#162d8a] text-white px-5 py-3 rounded-xl font-bold transition hover:scale-[1.02] active:scale-95 shadow-md shadow-blue-600/10"
+                                                        >
+                                                            <Send className="w-4 h-4" /> Apply Now
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </motion.div>
                                     )}
