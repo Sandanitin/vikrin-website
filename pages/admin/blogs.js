@@ -135,11 +135,11 @@ export default function AdminBlogs() {
             const res = await fetch(`${API_BASE}/blogs-admin.php`, {
                 method: 'PUT',
                 headers: authHeaders(token),
-                body: JSON.stringify({ ...post, is_published: post.is_published ? 0 : 1 }),
+                body: JSON.stringify({ ...post, is_published: Number(post.is_published) === 1 ? 0 : 1 }),
             });
             const data = await res.json();
             if (data.success) {
-                showToast(post.is_published ? 'Post unpublished' : 'Post published');
+                showToast(Number(post.is_published) === 1 ? 'Post unpublished' : 'Post published');
                 fetchPosts(token);
             }
         } catch {
