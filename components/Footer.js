@@ -45,6 +45,7 @@ export default function Footer() {
             {[
               { label: "About", href: "/about", isAnchor: false },
               { label: "Services", href: "/#services", isAnchor: true },
+              { label: "Blog", href: "/blog", isAnchor: false },
               { label: "Careers", href: "/careers", isAnchor: false },
               { label: "Contact", href: "/#contact", isAnchor: true },
               { label: "Privacy Policy", href: "/privacy-policy", isAnchor: false },
