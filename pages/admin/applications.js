@@ -185,11 +185,10 @@ export default function AdminApplications() {
                                             </span>
                                         </div>
                                     </div>
-
                                     <div className="flex items-center gap-2 shrink-0">
-                                        {app.resume_link && (
+                                        {app.resume_link && app.resume_link.trim() !== '' && (
                                             <a
-                                                href={app.resume_link}
+                                                href={app.resume_link.startsWith('http://') || app.resume_link.startsWith('https://') ? app.resume_link : `https://${app.resume_link}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="flex items-center gap-1 px-3 py-2 rounded-lg border border-blue-200 text-blue-600 hover:bg-blue-50 transition text-sm font-medium"
