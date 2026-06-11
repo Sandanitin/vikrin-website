@@ -126,7 +126,7 @@ export default function BlogIndex() {
                                     </div>
 
                                     <div className="p-6 pt-0">
-                                        <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-[#1F3CAB] font-bold hover:gap-3 transition duration-150 text-sm">
+                                        <Link href={`/blog/post?slug=${post.slug}`} className="inline-flex items-center gap-2 text-[#1F3CAB] font-bold hover:gap-3 transition duration-150 text-sm">
                                             Read Full Article <ArrowRight className="w-4 h-4" />
                                         </Link>
                                     </div>

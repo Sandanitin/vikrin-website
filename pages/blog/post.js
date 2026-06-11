@@ -1,13 +1,60 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { Calendar, User, ArrowLeft } from 'lucide-react';
+import { Calendar, User, ArrowLeft, Loader2 } from 'lucide-react';
 
 const API_BASE = 'https://pink-echidna-330123.hostingersite.com/api';
 
-export default function BlogPostDetail({ post, error }) {
+export default function BlogPostDetail() {
+    const router = useRouter();
+    const { slug } = router.query;
+
+    const [post, setPost] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        if (!router.isReady || !slug) return;
+
+        setLoading(true);
+        setError(false);
+        
+        fetch(`${API_BASE}/blogs-get.php?slug=${slug}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    setPost(data.data);
+                } else {
+                    setError(true);
+                }
+            })
+            .catch(() => {
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [router.isReady, slug]);
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <main className="min-h-screen bg-gray-50 flex items-center justify-center p-6 text-center">
+                    <div className="space-y-4">
+                        <Loader2 className="w-10 h-10 animate-spin text-[#1F3CAB] mx-auto" />
+                        <p className="text-gray-500 font-medium">Loading article…</p>
+                    </div>
+                </main>
+                <Footer />
+            </>
+        );
+    }
+
     if (error || !post) {
         return (
             <>
@@ -91,17 +138,4 @@ export default function BlogPostDetail({ post, error }) {
             <Footer />
         </>
     );
-}
-
-export async function getServerSideProps(context) {
-    const { slug } = context.params;
-    try {
-        const res = await fetch(`${API_BASE}/blogs-get.php?slug=${slug}`);
-        const data = await res.json();
-        if (data.success) {
-            return { props: { post: data.data } };
-        }
-    } catch {}
-    
-    return { props: { error: true } };
 }
