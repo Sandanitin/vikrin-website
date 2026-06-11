@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Header from '../../components/Header';
@@ -92,12 +91,10 @@ export default function BlogPostDetail() {
                     {/* Header Image */}
                     {post.image_url && (
                         <div className="relative h-64 md:h-[400px] w-full bg-gray-100">
-                            <Image 
+                            <img 
                                 src={post.image_url} 
                                 alt={post.title} 
-                                fill 
-                                priority
-                                className="object-cover" 
+                                className="w-full h-full object-cover" 
                             />
                         </div>
                     )}

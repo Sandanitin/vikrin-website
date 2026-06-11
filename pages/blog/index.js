@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useState, useEffect } from 'react';
@@ -102,12 +101,10 @@ export default function BlogIndex() {
                                     <div>
                                         {/* Thumbnail Image */}
                                         <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
-                                            <Image 
+                                            <img 
                                                 src={post.image_url || '/careers_hero.png'} 
                                                 alt={post.title}
-                                                fill
-                                                sizes="(max-width: 768px) 100vw, 33vw"
-                                                className="object-cover group-hover:scale-105 transition duration-500"
+                                                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                                             />
                                         </div>
 
