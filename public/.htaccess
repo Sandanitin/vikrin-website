@@ -1,25 +1,24 @@
 <IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
+  RewriteEngine On
+  RewriteBase /
 
-# Disable directory indices
-Options -Indexes
+  # Disable directory indices
+  Options -Indexes
 
-# Remove trailing slash (except root and directories)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)/$ $1 [R=301,L]
+  # Disable Apache's automatic trailing slash on directories
+  # This prevents redirect loops when a dir and .html file share the same name
+  DirectorySlash Off
 
-# If a directory exists AND a matching .html file exists, serve the .html file
-# This fixes /blog (dir) vs blog.html, /admin/blogs (dir) vs blogs.html, etc.
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [L]
+  # If a directory exists AND a matching .html file exists, serve the .html file
+  # This fixes /blog (dir) vs blog.html, /admin/blogs (dir) vs blogs.html, etc.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
 
-# Append .html to paths that don't have an extension
-# so that Next.js static exports resolve correctly on Hostinger
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [L]
+  # Append .html to paths that don't have an extension
+  # so that Next.js static exports resolve correctly on Hostinger
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
