@@ -63,7 +63,7 @@ export default function AdminLogin() {
                             <LogIn className="w-8 h-8 text-white" />
                         </div>
                         <h1 className="text-3xl font-extrabold tracking-tight">Admin Portal</h1>
-                        <p className="text-white/70 text-sm mt-1.5 font-medium">Vikrin Careers Management</p>
+                        <p className="text-white/70 text-sm mt-1.5 font-medium">Careers & Blogs Management</p>
                     </div>
  
                     <form onSubmit={handleLogin} className="px-8 py-8 space-y-6">

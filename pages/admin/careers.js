@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
     Plus, Pencil, Trash2, LogOut, Eye, EyeOff, CheckCircle,
-    XCircle, AlertTriangle, X, Loader2, Briefcase, MapPin, Clock, Users
+    XCircle, AlertTriangle, X, Loader2, Briefcase, MapPin, Clock, Users, BookOpen
 } from 'lucide-react';
 
 const API_BASE = 'https://pink-echidna-330123.hostingersite.com/api';
@@ -179,8 +179,7 @@ export default function AdminCareers() {
             </Head>
 
             <div className="min-h-screen bg-gray-50">
-                {/* Topbar */}
-                <header className="bg-[#1F3CAB] text-white px-6 py-4 flex items-center justify-between sticky top-0 z-40 shadow-lg">
+                <header className="bg-[#1F3CAB] text-white px-6 py-4 flex flex-col md:flex-row items-center justify-between sticky top-0 z-40 shadow-lg gap-4">
                     <div className="flex items-center gap-3">
                         <Briefcase className="w-6 h-6" />
                         <div>
@@ -188,7 +187,10 @@ export default function AdminCareers() {
                             <p className="text-white/70 text-xs">Careers Management</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-wrap">
+                        <Link href="/admin/blogs" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
+                            <BookOpen className="w-4 h-4" /> Manage Blogs
+                        </Link>
                         <Link href="/admin/applications" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
                             <Users className="w-4 h-4" /> View Applicants
                         </Link>

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Trash2, LogOut, Eye, CheckCircle, FileText,
-    XCircle, AlertTriangle, X, Loader2, Users, LayoutDashboard, Clock
+    XCircle, AlertTriangle, X, Loader2, Users, LayoutDashboard, Clock, Briefcase, BookOpen
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -114,8 +114,7 @@ export default function AdminApplications() {
             </Head>
 
             <div className="min-h-screen bg-gray-50">
-                {/* Topbar */}
-                <header className="bg-[#1F3CAB] text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between sticky top-0 z-40 shadow-lg gap-4">
+                <header className="bg-[#1F3CAB] text-white px-6 py-4 flex flex-col md:flex-row items-center justify-between sticky top-0 z-40 shadow-lg gap-4">
                     <div className="flex items-center gap-3">
                         <Users className="w-6 h-6" />
                         <div>
@@ -123,9 +122,12 @@ export default function AdminApplications() {
                             <p className="text-white/70 text-xs">Applications Dashboard</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-wrap">
+                        <Link href="/admin/blogs" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
+                            <BookOpen className="w-4 h-4" /> Manage Blogs
+                        </Link>
                         <Link href="/admin/careers" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
-                            <LayoutDashboard className="w-4 h-4" /> Manage Jobs
+                            <Briefcase className="w-4 h-4" /> Manage Jobs
                         </Link>
                         <button onClick={logout} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition">
                             <LogOut className="w-4 h-4" /> Logout
