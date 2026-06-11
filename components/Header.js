@@ -48,9 +48,9 @@ export default function Header() {
         <Link href="/#portfolio" className="hover:text-blue-600">Portfolio</Link>
         <Link href="/#why-us" className="hover:text-blue-600">Why Us</Link>
         <Link href="/#testimonials" className="hover:text-blue-600">Testimonials</Link>
-        <Link href="/#contact" className="hover:text-blue-600">Contact</Link>
         <Link href="/blog" className="hover:text-blue-600">Blog</Link>
         <Link href="/careers" className="hover:text-blue-600 font-semibold text-[#1F3CAB]">Careers</Link>
+        <Link href="/#contact" className="hover:text-blue-600">Contact</Link>
       </nav>
     </header>
   );
