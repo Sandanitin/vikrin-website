@@ -2,34 +2,22 @@
 require_once __DIR__ . '/cors.php';
 require_once __DIR__ . '/db.php';
 
-// Hardcoded tokens logic matching careers-admin.php
-$SECRET_KEY = "vikrin_super_secret_key_2025";
-$headers = getallheaders();
-$authHeader = $headers['Authorization'] ?? '';
+// --- Auth check ---
+$SECRET_KEY = 'VikrinAdminSecret2024!';
 
-if (!preg_match('/Bearer\s(\S+)/', $authHeader, $matches)) {
-    http_response_code(401);
-    echo json_encode(['success' => false, 'error' => 'Missing or invalid token']);
-    exit;
+function verify_token($key) {
+    $headers = getallheaders();
+    $auth = $headers['Authorization'] ?? $headers['authorization'] ?? '';
+    if (!str_starts_with($auth, 'Bearer ')) return false;
+    $token = substr($auth, 7);
+    // Simple HMAC token validation
+    [$data, $sig] = explode('.', $token . '.') + [0 => '', 1 => ''];
+    return $sig === hash_hmac('sha256', $data, $key);
 }
 
-$token = $matches[1];
-
-function verify_jwt($token, $secret) {
-    $parts = explode('.', $token);
-    if (count($parts) !== 3) return false;
-    list($b64header, $b64payload, $signature) = $parts;
-    $validSignature = hash_hmac('sha256', "$b64header.$b64payload", $secret);
-    if (!hash_equals($validSignature, base64_decode($signature))) return false;
-    $payload = json_decode(base64_decode($b64payload), true);
-    if (isset($payload['exp']) && $payload['exp'] < time()) return false;
-    return $payload;
-}
-
-$payload = verify_jwt($token, $SECRET_KEY);
-if (!$payload) {
+if (!verify_token($SECRET_KEY)) {
     http_response_code(401);
-    echo json_encode(['success' => false, 'error' => 'Invalid or expired token']);
+    echo json_encode(['success' => false, 'error' => 'Unauthorized']);
     exit;
 }
 
