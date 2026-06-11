@@ -4,6 +4,7 @@
 
   # Disable directory indices
   Options -Indexes
+DirectorySlash Off
 
   # Remove trailing slash (except root)
   RewriteCond %{REQUEST_FILENAME} !-f
